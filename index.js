@@ -16,10 +16,10 @@ function templateCompiler() {
       return cb();
     }
 
-    var fileName = path.basename(file.relative, path.extname(file.relative));
-    var compilerOutput = compiler.precompile(file.contents.toString(), false);
-
     if (file.isBuffer()) {
+      var fileName = path.basename(file.relative, path.extname(file.relative));
+      var compilerOutput = compiler.precompile(file.contents.toString(), false);
+
       file.contents = new Buffer("Ember.TEMPLATES['" + fileName +"'] = Ember.Handlebars.template(" + compilerOutput + ");");
     }
 
