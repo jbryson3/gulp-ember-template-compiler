@@ -27,4 +27,4 @@ gulp.task('templates', function () {
 
 ## Usage Tips
 
-* This plugin fit for Handlebars 2.0
+* This plugin fit for Emberjs (>=)1.9.0 & Handlebars 2.0.0
