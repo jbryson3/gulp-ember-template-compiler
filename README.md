@@ -1,4 +1,30 @@
-gulp-ember-template-compiler
-============================
+# gulp-ember-template-compiler
 
-An npm module for using ember-template-compiler with gulp.
+Precompile Handlebars templates for Ember.js.
+
+## Usage
+
+First, install ```gulp-ember-template-compiler```:
+
+```shell
+npm install gulp-ember-template-compiler --save-dev
+```
+
+Then, add this to your gulpfile.js:
+
+```javascript
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var templateCompiler = require('gulp-ember-template-compiler');
+
+gulp.task('templates', function () {
+  gulp.src('/app/templates/*.hbs')
+    .pipe(templateCompiler())
+    .pipe(concat('templates.js'))
+    .pipe(gulp.dest('/app/templates'));
+});
+```
+
+## Usage Tips
+
+* This plugin fit for Handlebars 2.0
