@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "description": "A gulp plugin that precompiles Handlebars templates for Ember.js.",
   "author": "DaoJing Gao <me@gaodaojing.com>",
-  "homepage": "https://github.com/gaodaojing/gulp-ember-template-compiler",
+  "homepage": "https://github.com/geosinger/gulp-ember-template-compiler",
   "keywords": [
     "ember",
     "gulp",
@@ -18,10 +18,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gaodaojing/gulp-ember-template-compiler.git"
+    "url": "git://github.com/geosinger/gulp-ember-template-compiler.git"
   },
   "bugs": {
-    "url": "https://github.com/gaodaojing/gulp-ember-template-compiler/issues"
+    "url": "https://github.com/geosinger/gulp-ember-template-compiler/issues"
   },
   "dependencies": {
     "ember-template-compiler": "~1.9.0-alpha",
