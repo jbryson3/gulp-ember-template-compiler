@@ -17,7 +17,8 @@ function templateCompiler() {
     }
 
     if (file.isBuffer()) {
-      var fileName = path.basename(file.relative, path.extname(file.relative));
+      var n = path.extname(file.relative).length;
+      var fileName = n === 0 ? file.relative : file.relative.slice(0, -n);
       var compilerOutput = compiler.precompile(file.contents.toString(), false);
 
       file.contents = new Buffer("Ember.TEMPLATES['" + fileName +"'] = Ember.Handlebars.template(" + compilerOutput + ");");
