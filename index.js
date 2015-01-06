@@ -21,7 +21,7 @@ function templateCompiler() {
       var fileName = n === 0 ? file.relative : file.relative.slice(0, -n);
       var compilerOutput = compiler.precompile(file.contents.toString(), false);
 
-      file.contents = new Buffer("Ember.TEMPLATES['" + fileName +"'] = Ember.Handlebars.template(" + compilerOutput + ");");
+      file.contents = new Buffer("Ember.TEMPLATES['" + fileName.replace(path.sep, '/') +"'] = Ember.Handlebars.template(" + compilerOutput + ");");
     }
 
     this.push(file);
