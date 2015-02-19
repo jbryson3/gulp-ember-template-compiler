@@ -5,7 +5,12 @@ var path = require('path');
 
 const PLUGIN_NAME = 'gulp-ember-template-compiler';
 
-function templateCompiler() {
+var defaultProcessName = function (name) {
+  var n = path.extname(name).length;
+  return n === 0 ? name : name.slice(0, -n);
+};
+
+function templateCompiler(options) {
   var stream = through.obj(function(file, enc, cb) {
     if (file.isNull()) {
       return cb();
@@ -17,8 +22,8 @@ function templateCompiler() {
     }
 
     if (file.isBuffer()) {
-      var n = path.extname(file.relative).length;
-      var fileName = n === 0 ? file.relative : file.relative.slice(0, -n);
+      var processName = options.processName || defaultProcessName;
+      var fileName = processName(file.relative);
       var compilerOutput = compiler.precompile(file.contents.toString(), false);
 
       file.contents = new Buffer("Ember.TEMPLATES['" + fileName.replace(path.sep, '/') +"'] = Ember.Handlebars.template(" + compilerOutput + ");");
